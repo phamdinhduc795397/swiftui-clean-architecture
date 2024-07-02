@@ -16,7 +16,6 @@
 		7D009AFB2BF8FC06002651E3 /* AnyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D009AFA2BF8FC06002651E3 /* AnyViewModel.swift */; };
 		7D009AFE2BF8FC6E002651E3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D009AFD2BF8FC6E002651E3 /* NetworkService.swift */; };
 		7D009B002BF8FDF8002651E3 /* APITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D009AFF2BF8FDF8002651E3 /* APITarget.swift */; };
-		7D009B032BF8FE0B002651E3 /* Stinsen in Frameworks */ = {isa = PBXBuildFile; productRef = 7D009B022BF8FE0B002651E3 /* Stinsen */; };
 		7D009B062BF8FE26002651E3 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 7D009B052BF8FE26002651E3 /* CombineExt */; };
 		7D009B092BF8FE3D002651E3 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 7D009B082BF8FE3D002651E3 /* Factory */; };
 		7D009B0C2BF8FE8D002651E3 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7D009B0B2BF8FE8D002651E3 /* CombineMoya */; };
@@ -124,7 +123,6 @@
 				7D009B092BF8FE3D002651E3 /* Factory in Frameworks */,
 				7D009B062BF8FE26002651E3 /* CombineExt in Frameworks */,
 				7D009B0C2BF8FE8D002651E3 /* CombineMoya in Frameworks */,
-				7D009B032BF8FE0B002651E3 /* Stinsen in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,7 +481,6 @@
 			);
 			name = "SwiftUI-Clean-Architectures";
 			packageProductDependencies = (
-				7D009B022BF8FE0B002651E3 /* Stinsen */,
 				7D009B052BF8FE26002651E3 /* CombineExt */,
 				7D009B082BF8FE3D002651E3 /* Factory */,
 				7D009B0B2BF8FE8D002651E3 /* CombineMoya */,
@@ -561,7 +558,6 @@
 			);
 			mainGroup = 7D009AB42BF8FA77002651E3;
 			packageReferences = (
-				7D009B012BF8FE0B002651E3 /* XCRemoteSwiftPackageReference "stinsen" */,
 				7D009B042BF8FE26002651E3 /* XCRemoteSwiftPackageReference "CombineExt" */,
 				7D009B072BF8FE3D002651E3 /* XCRemoteSwiftPackageReference "Factory" */,
 				7D009B0A2BF8FE8D002651E3 /* XCRemoteSwiftPackageReference "Moya" */,
@@ -968,14 +964,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7D009B012BF8FE0B002651E3 /* XCRemoteSwiftPackageReference "stinsen" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/rundfunk47/stinsen";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.13;
-			};
-		};
 		7D009B042BF8FE26002651E3 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CombineCommunity/CombineExt";
@@ -1003,11 +991,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7D009B022BF8FE0B002651E3 /* Stinsen */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7D009B012BF8FE0B002651E3 /* XCRemoteSwiftPackageReference "stinsen" */;
-			productName = Stinsen;
-		};
 		7D009B052BF8FE26002651E3 /* CombineExt */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7D009B042BF8FE26002651E3 /* XCRemoteSwiftPackageReference "CombineExt" */;

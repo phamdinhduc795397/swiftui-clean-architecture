@@ -7,7 +7,6 @@
 
 import Foundation
 import CombineExt
-import Stinsen
 import Combine
 import Factory
 
@@ -28,13 +27,13 @@ class TopHeadlinesViewModel: ViewModel {
     let fetchDataStream = PassthroughRelay<Void>()
     private var cancellables = Set<AnyCancellable>()
     
-    @RouterObject
-    var router: HeadlineCoordinator.Router?
-    
     @Injected(\.fetchTopHeadlinesUseCase)
     var fetchTopHeadlinesUseCase
     
-    init() {
+    let onShowingDetail: (Article) -> Void
+    
+    init(onShowingDetail: @escaping (Article) -> Void) {
+        self.onShowingDetail = onShowingDetail
         initData()
     }
     
@@ -64,7 +63,7 @@ class TopHeadlinesViewModel: ViewModel {
         case .fetchData:
             fetchDataStream.accept()
         case .showDetail(let article):
-            router?.route(to: \.headlineDetail, article)
+            onShowingDetail(article)
         }
     }
 }

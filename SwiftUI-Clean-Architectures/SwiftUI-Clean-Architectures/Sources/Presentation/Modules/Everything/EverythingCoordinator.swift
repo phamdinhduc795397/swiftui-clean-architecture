@@ -6,25 +6,35 @@
 //
 
 import Foundation
-import Stinsen
 import SwiftUI
 
-final class EverythingCoordinator: NavigationCoordinatable {
-    let stack = Stinsen.NavigationStack<EverythingCoordinator>(initial: \EverythingCoordinator.home)
-
-    @Root
-    var home = makeEveything
-    
-    @Route(.push)
-    var detail = makeEverythingDetail
-}
-
-extension EverythingCoordinator {
-    func makeEveything() -> EverythingScreen {
-        EverythingScreen(viewModel: AnyViewModel(EverythingViewModel()))
+struct EverythingCoordinator: View {
+    enum Screen: Hashable {
+        case detail(Article)
     }
     
-    func makeEverythingDetail(_ article: Article) -> EverythingDetailScreen {
-        EverythingDetailScreen(viewModel: AnyViewModel(EverythingDetailViewModel(article: article)))
+    @State var path = NavigationPath()
+    
+    var body: some View {
+        NavigationStack(path: $path) {
+            rootView()
+                .navigationDestination(for: Screen.self) { screen in
+                    switch screen {
+                    case .detail(let article):
+                        EverythingDetailScreen(viewModel: AnyViewModel(EverythingDetailViewModel(article: article)))
+                    }
+                }
+        }
+    }
+    
+    
+    @ViewBuilder
+    func rootView() -> some View {
+        let viewModel = EverythingViewModel(onShowingDetail: showDetail)
+        EverythingScreen(viewModel: AnyViewModel(viewModel))
+    }
+    
+    func showDetail(_ article: Article) {
+        path.append(Screen.detail(article))
     }
 }

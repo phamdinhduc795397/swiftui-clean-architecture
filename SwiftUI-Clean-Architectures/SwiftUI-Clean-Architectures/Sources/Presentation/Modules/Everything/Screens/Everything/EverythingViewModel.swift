@@ -7,7 +7,6 @@
 
 import Foundation
 import CombineExt
-import Stinsen
 import Combine
 import Factory
 
@@ -29,13 +28,13 @@ class EverythingViewModel: ViewModel {
     let fetchDataStream = PassthroughRelay<Void>()
     private var cancellables = Set<AnyCancellable>()
     
-    @RouterObject
-    var router: EverythingCoordinator.Router?
-    
     @Injected(\.fetchEverythingUseCase)
     var fetchEverythingUseCase
     
-    init() {
+    let onShowingDetail: (Article) -> Void
+    
+    init(onShowingDetail: @escaping (Article) -> Void) {
+        self.onShowingDetail = onShowingDetail
         initData()
     }
     
@@ -74,7 +73,7 @@ class EverythingViewModel: ViewModel {
         case .fetchData:
             fetchDataStream.accept()
         case .showDetail(let article):
-            router?.route(to: \.detail, article)
+            onShowingDetail(article)
         }
     }
 }
