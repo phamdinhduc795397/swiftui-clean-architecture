@@ -10,7 +10,7 @@ A SwiftUI project implements Clean Architecture, MVVM & Coordinator pattern.
 
 # MVVM & Coordinator
 
-The Coordinator pattern reduces direct dependencies between scenes, alowing groups to use a particalure flow to visualize transition between views
+The Coordinator pattern reduces direct dependencies between scenes, allowing groups to use a particular flow to visualize transition between views
 
 ![alt text](Images/MVVM-C.png?raw=true)
 
